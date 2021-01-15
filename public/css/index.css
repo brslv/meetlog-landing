@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  line-height: 1.4em;
+  color: #353535;
+  background-color: white; }
+
+input, textarea {
+  line-height: 1.4em; }
+
+h1, h2, h3 {
+  line-height: 1.4em; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none; }
+
+.clickable {
+  cursor: pointer; }
+
+.light {
+  font-weight: 200; }
+
+.medium {
+  font-weight: 600; }
+
+.regular {
+  font-weight: 400; }
+
+.bold {
+  font-weight: 800; }
+
+.no-scroll {
+  overflow: hidden; }
+
+.mt-0 {
+  margin-top: 0; }
+
+.scale-transition {
+  transition: all, 0.3s; }
+  .scale-transition:hover {
+    transform: scale(1.05); }
+  .scale-transition:active {
+    transform: scale(1.09); }
+
+.brand {
+  position: fixed;
+  top: 35px;
+  left: 35px; }
+
+.header {
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center; }
+  .header-pattern-1 {
+    z-index: -1;
+    position: fixed;
+    top: 150px;
+    left: 200px;
+    width: 350px;
+    height: 350px;
+    background-image: url("/images/dots-pattern.svg");
+    background-repeat: no-repeat; }
+  .header-jumbo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center; }
+    .header-jumbo-title {
+      font-size: 64px;
+      font-weight: 200;
+      margin-bottom: 20px;
+      line-height: 1.4em; }
+    .header-jumbo-subtitle {
+      margin-bottom: 20px; }
+    .header-jumbo-subtitle-2 {
+      font-weight: 800; }

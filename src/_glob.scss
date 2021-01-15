@@ -1,0 +1,183 @@
+$px: (
+        "xs": 1px,
+        "2xs": 2px,
+        "sm": 5px,
+        "md": 10px,
+        "lg": 15px,
+        "xl": 20px,
+        "2xl": 25px,
+        "3xl": 30px,
+        "4xl": 35px,
+        "5xl": 40px,
+        "6xl": 45px,
+        "7xl": 50px
+);
+$weights: (
+        "light": 200,
+        "regular": 400,
+        "medium": 600,
+        "bold": 800
+);
+$font-sizes: (
+        "xs": 14px,
+        "sm": 16px,
+        "md": 18px,
+        "lg": 24px,
+        "xl": 36px,
+        "2xl": 48px,
+        "3xl": 64px,
+);
+$speed-slow: 0.45s;
+$speed: 0.3s;
+$speed-fast: 0.15s;
+$base-font-size: map-get($font-sizes, "md");
+$btn-font-size: map-get($font-sizes, "sm");
+$radius: 15px;
+$container-max-width: 1440px;
+$input-height: 50px;
+$attendee-avatar-width: 60px;
+$attendee-avatar-height: 60px;
+$icon-width: 25px;
+$icon-height: 25px;
+$btn-height: 45px;
+$btn-min-width: 90px;
+$icon-btn-icon-width: 20px;
+$icon-btn-icon-height: 20px;
+$checkbox-width: 30px;
+$checkbox-height: 30px;
+$menu-item-height: 45px;
+$menu-min-width: 250px;
+$dialog-default-min-width: 300px;
+$create-next-step-dialog-max-width: 480px;
+$create-next-step-dialog-min-width: 420px;
+$create-agenda-item-dialog-min-width: 400px;
+$create-agenda-item-dialog-max-width: 480px;
+$add-attendee-dialog-min-width: 420px;
+$dialog-content-max-height: calc(100vh - 300px);
+$notification-max-width: 480px;
+// $search-bar-height: $input-height;
+$colors: (
+        "white": #FFFFFF,
+        "text": #353535,
+        "gray": #DADADA,
+        "gray-hover": darken(#DADADA, 3),
+        "gray-light": darken(#F3F3F3, 3),
+        "gray-dark": #D0D0D0,
+        "gray-dark2": darken(#D0D0D0, 8),
+        "primary": #35CD00,
+        "primary-hover": darken(#35CD00, 5),
+        "primary-dark": darken(#35CD00, 5),
+        "primary-light": #D0FFBF,
+        "primary-glow": #CAEBBF,
+        "accent": #CD00A0,
+        "accent-hover": darken(#CD00A0, 5),
+        "accent-dark": darken(#CD00A0, 5),
+        "accent-light": #f09fde,
+        "accent-glow": #EBBEE1,
+        "error": #FFCECE,
+        "warning": rgb(238, 191, 103),
+        "warning-light": lighten(rgb(238, 191, 103), 5),
+        "warning-hover": darken(rgb(238, 191, 103), 10),
+        "warning-dark": darken(rgb(238, 191, 103), 10),
+        "warning-glow": lighten(rgb(238, 191, 103), 20),
+        "info": #CEEDFF,
+        "body-bg": white, // lighten(#F3F3F3, 1),
+        "card-bg": #fff,
+        "dialog-glow": darken(#f3f3f3, 15),
+        "dim-bg": rgba(75, 90, 65, 0.2),
+);
+$dropdown-border: 1px solid map-get($colors, "gray-light");
+$notification-border: $dropdown-border;
+
+// ---- Mixins ----
+
+// mq
+@mixin mqsm() {
+  @media (min-width: 480px) {
+    @content
+  }
+}
+
+@mixin mqmd() {
+  @media (min-width: 640px) {
+    @content
+  }
+}
+
+@mixin mqlg() {
+  @media (min-width: 780px) {
+    @content
+  }
+}
+
+@mixin mqxl() {
+  @media (min-width: 960px) {
+    @content
+  }
+}
+
+@mixin mq2xl() {
+  @media (min-width: 1120px) {
+    @content
+  }
+}
+
+@mixin flex($ai: center, $jc: null) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+}
+
+@mixin grid($col-gap: map-get($map: $px, $key: "xl"), $row-gap: map-get($map: $px, $key: "xl")) {
+  display: grid;
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+}
+
+@mixin glow($color: primary, $text: false) {
+  @if $text == true {
+    text-shadow: 0 0 4px map-get($colors, $color);
+  } @else {
+    box-shadow: 0 3px 3px 1px map-get($colors, $color);
+  }
+}
+
+@mixin glow-hover($color: primary, $text: false) {
+  &:hover {
+    @if $text == true {
+      text-shadow: 0 0 7px map-get($colors, $color);
+    } @else {
+      box-shadow: 0 6px 17px 1px map-get($colors, $color), 0 0 3px 1px lighten(map-get($colors, $color), 4);
+    }
+  }
+}
+
+@mixin scale-on-hover($factor: 1, $active-factor: 1.02) {
+  &:hover {
+    transform: scale($factor);
+  }
+  &:active {
+    transform: scale($active-factor);
+  }
+}
+
+@mixin outline($color, $reset-border: true) {
+  outline: none;
+
+  @if $reset-border {
+    border: 2px solid transparent;
+  }
+
+  &:focus {
+    border: 2px solid map-get($colors, $color);
+  }
+}
+
+@mixin transition($prop: all, $sp: null) {
+  @if $sp != null {
+    transition: $prop, $sp;
+  } @else {
+    // use global $speed
+    transition: $prop, $speed;
+  }
+}
