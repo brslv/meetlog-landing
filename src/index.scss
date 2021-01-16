@@ -37,10 +37,7 @@
   }
 
   &-jumbo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: map-get($px, "7xl");
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -50,10 +47,17 @@
     text-align: center;
 
     &-title {
-      font-size: map-get($font-sizes, "3xl");
+      font-size: map-get($font-sizes, "xl");
       font-weight: map-get($weights, "bold");
       margin-bottom: map-get($px, "xl");
       line-height: 1.4em;
+
+      @include mqmd {
+        font-size: map-get($font-sizes, "xl");
+      }
+      @include mqlg {
+        font-size: map-get($font-sizes, "3xl");
+      }
     }
 
     &-subtitle {
@@ -63,6 +67,7 @@
     }
 
     &-subtitle-2 {
+      color: map-get($colors, "gray-dark");
     }
 
     &-cta {
@@ -79,9 +84,12 @@
       }
 
       .btn {
-        font-size: map-get($font-sizes, "lg");
-        padding: map-get($px, "3xl") !important;
         transform: none;
+
+        @include mqmd {
+          font-size: map-get($font-sizes, "lg");
+          padding: map-get($px, "3xl") !important;
+        }
       }
 
     }
@@ -123,7 +131,10 @@ img {
   }
 
   img {
-    //margin-bottom: map-get($px, "4xl");
+    margin-bottom: map-get($px, "4xl");
+    @include mqmd {
+      margin-bottom: 0;
+    }
   }
 
   @include mqxl {
