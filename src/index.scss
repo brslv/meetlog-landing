@@ -161,9 +161,13 @@ img {
   }
 
   &-title {
-    font-size: map-get($font-sizes, "xl");
+    font-size: map-get($font-sizes, "lg");
     font-weight: map-get($weights, "bold");
     line-height: 1.4em;
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
   }
 
   &-roles {
