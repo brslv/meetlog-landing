@@ -13,5 +13,6 @@ function css() {
 }
 
 module.exports = {
+  cssbuild: task("cssbuild", series(clean, css)),
   css: task("css", () => watch(["./src/**/*.scss"], series(clean, css))),
 };
