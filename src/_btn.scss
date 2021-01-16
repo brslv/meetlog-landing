@@ -1,0 +1,128 @@
+@import './glob.scss';
+
+.btn {
+  user-select: none;
+  min-width: $btn-min-width;
+  height: $btn-height;
+  font-size: $btn-font-size;
+  font-weight: map-get($weights, "regular");
+  padding-left: map-get($px, "lg");
+  padding-right: map-get($px, "lg");
+  border: none;
+  cursor: pointer;
+  line-height: $btn-height;
+  transition: transform $speed, box-shadow $speed, background $speed;
+  @include flex(center, center);
+  @include outline("primary");
+  @include scale-on-hover;
+
+  &:disabled, &-disabled, &.btn-loading {
+    background: map-get($colors, "gray-light");
+    color: map-get($colors, "gray-dark");
+    box-shadow: none !important;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &-round {
+    border-radius: $radius;
+  }
+
+  &-icon {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+
+    .icon {
+      width: $icon-btn-icon-width;
+      height: $icon-btn-icon-height;
+    }
+  }
+
+  &-default {
+    background: map-get($colors, "gray");
+    @include outline("gray");
+
+    &.btn-text {
+      color: map-get($colors, "gray-dark");
+      background: transparent;
+
+      &:hover {
+        color: map-get($colors, "gray-dark2");
+        background: transparent;
+      }
+    }
+
+    &:hover {
+      background: map-get($colors, "gray-hover");
+    }
+  }
+
+  &-primary {
+    background: map-get($colors, "primary");
+    color: map-get($colors, "white");
+    @include outline("primary-dark");
+
+
+    &:hover {
+      background: map-get($colors, "primary-hover");
+    }
+
+    &.btn-light {
+      color: map-get($colors, "text");
+      background: map-get($colors, "primary-light");
+    }
+
+    &.btn-glow {
+      @include glow(primary-glow, false);
+      @include glow-hover(primary-glow, false);
+    }
+  }
+
+  &-accent {
+    background: map-get($colors, "accent");
+    color: map-get($colors, "white");
+    @include outline("accent-dark");
+
+    &:hover {
+      background: map-get($colors, "accent-hover");
+    }
+
+    &.btn-light {
+      color: map-get($colors, "text");
+      background: map-get($colors, "accent-light");
+    }
+
+    &.btn-glow {
+      @include glow(accent-glow, false);
+      @include glow-hover(accent-glow, false);
+    }
+  }
+
+  &-warning {
+    background: map-get($colors, "warning");
+    color: map-get($colors, "white");
+    @include outline("warning-dark");
+
+
+    &:hover {
+      background: map-get($colors, "warning-hover") !important;
+    }
+
+    &.btn-light {
+      color: map-get($colors, "text");
+      background: map-get($colors, "warning-light");
+    }
+
+    &.btn-glow {
+      @include glow("warning-glow", false);
+      @include glow-hover("warning-glow", false);
+    }
+  }
+}

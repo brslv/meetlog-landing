@@ -1,5 +1,6 @@
 @import "./_glob.scss";
 @import "./_base.scss";
+@import "./_btn.scss";
 
 .brand {
   position: fixed;
@@ -9,19 +10,30 @@
 
 .header {
   height: 100vh;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  @include flex;
+
+  &-meetlog {
+    position: absolute;
+    top: map-get($px, "7xl");
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100px;
+  }
 
   &-pattern-1 {
-    z-index:-1;
-    position: fixed;
+    display: none;
+    z-index: -1;
+    position: absolute;
     top: 150px;
     left: 200px;
     width: 350px;
     height: 350px;
     background-image: url("/images/dots-pattern.svg");
     background-repeat: no-repeat;
+
+    @include mq2xl {
+      display: block;
+    }
   }
 
   &-jumbo {
@@ -39,7 +51,7 @@
 
     &-title {
       font-size: map-get($font-sizes, "3xl");
-      font-weight: map-get($weights, "light");
+      font-weight: map-get($weights, "bold");
       margin-bottom: map-get($px, "xl");
       line-height: 1.4em;
     }
@@ -47,11 +59,198 @@
     &-subtitle {
       // font-size: map-get($font-sizes, "");
       margin-bottom: map-get($px, "xl");
+      max-width: 48ch;
     }
 
     &-subtitle-2 {
-      font-weight: map-get($weights, "bold");
+    }
+
+    &-cta {
+      @include flex(flex-start);
+      margin-top: map-get($px, "4xl") * 2;
+
+      > .btn:first-child {
+        display: none;
+        margin-right: map-get($px, "xl");
+
+        @include mqlg {
+          display: flex;
+        }
+      }
+
+      .btn {
+        font-size: map-get($font-sizes, "lg");
+        padding: map-get($px, "3xl") !important;
+        transform: none;
+      }
+
     }
   }
 }
 
+.btn-helper {
+  margin-top: map-get($px, "sm");
+  font-size: map-get($font-sizes, "xs");
+  color: map-get($colors, "gray");
+}
+
+.container {
+  margin: auto;
+  max-width: 980px;
+  padding: map-get($px, "3xl");
+
+  &.big {
+    max-width: 1280px;
+  }
+}
+
+img {
+  max-width: 100%;
+  user-select: none;
+  margin: 0;
+}
+
+.section {
+  flex-direction: column;
+  margin-bottom: map-get($px, "7xl") * 2;
+  text-align: center;
+  @include flex(center, space-between);
+
+  &:nth-child(even) {
+    padding: map-get($px, "xl") map-get($px, "3xl");
+    background: map-get($colors, "section-accent-bg");
+    border-radius: $radius;
+  }
+
+  img {
+    //margin-bottom: map-get($px, "4xl");
+  }
+
+  @include mqxl {
+    flex-direction: row;
+    text-align: left;
+
+    img {
+      margin-right: map-get($px, "4xl");
+    }
+  }
+;
+
+  &-rev {
+    flex-direction: column;
+
+    @include mqxl {
+      flex-direction: row-reverse;
+
+      img {
+        margin-left: map-get($px, "4xl");
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-title {
+    font-size: map-get($font-sizes, "xl");
+    font-weight: map-get($weights, "bold");
+    line-height: 1.4em;
+  }
+
+  &-roles {
+    margin-bottom: map-get($px, "xl");
+
+    .section-title {
+      margin-top: -(map-get($px, "7xl"));
+    }
+  }
+}
+
+.the-problem {
+  //margin: map-get($px, "7xl") * 2 auto;
+
+  &-title {
+    text-align: center;
+    font-size: map-get($font-sizes, "lg");
+  }
+
+  &-grid {
+    grid-template-columns: repeat(2, 1fr);
+    font-size: map-get($font-sizes, "sm");
+    margin: map-get($px, "7xl") auto;
+    @include grid(map-get($px, "md"), map-get($px, "md"));
+
+    @include mqmd {
+      grid-template-columns: repeat(2, 1fr);
+      @include grid(map-get($px, "xl"), map-get($px, "xl"));
+    }
+    @include mqlg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mqxl {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &-description {
+    text-align: center;
+    max-width: 48ch;
+    margin: auto;
+
+    h2 {
+      font-weight: map-get($weights, "regular");
+      font-size: map-get($font-sizes, "lg");
+    }
+
+    .yes {
+      font-style: italic;
+      font-weight: map-get($weights, "regular");
+    }
+
+    .framework {
+      padding: map-get($px, "xs") map-get($px, "md");
+      border-radius: $radius;
+      color: map-get($colors, "accent");
+      border: 2px solid map-get($colors, "accent");
+      @include glow("accent-glow");
+    }
+  }
+}
+
+.solution {
+  text-align: center;
+  margin: map-get($px, "7xl") auto;
+  background: map-get($colors, "section-accent-bg");
+  border-radius: $radius;
+  padding: map-get($px, "xl");
+
+  &-title {
+    font-size: map-get($px, "3xl");
+    font-weight: map-get($weights, "bold");
+    margin: 0 0 map-get($px, "lg") 0;
+  }
+
+  &-description {
+    font-weight: map-get($weights, "regular");
+    margin: 0;
+  }
+}
+
+.how-it-works {
+  text-align: center;
+
+  h2 {
+    font-weight: map-get($weights, "regular");
+    font-size: map-get($font-sizes, "lg");
+  }
+}
+
+.line {
+  padding: map-get($px, "md");
+  border: 1px solid map-get($colors, "gray-light");
+  border-radius: $radius;
+
+  @include mqmd {
+    padding: map-get($px, "xl");
+  }
+  // max-width: 300px;
+  @include glow("gray-light");
+}
