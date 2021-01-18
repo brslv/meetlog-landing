@@ -7,7 +7,6 @@ const port = 3000;
 (async function () {
   dotenv.config({path: path.join(__dirname, "../.env")});
 
-  console.log(process.env);
   const {Client} = require('pg')
   const client = new Client()
   await client.connect()
