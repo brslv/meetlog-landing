@@ -27,7 +27,6 @@ const port = 3000;
     try {
       await client.query('INSERT INTO subs(email, get_updates) VALUES($1, $2);', [data.email, data.getUpdates]);
       const countResult = await client.query('SELECT COUNT(*) FROM subs;');
-      console.log(countResult);
       const count = countResult.rows[0].count;
       return res.send({ok: true, count: (!count || count < 21) ? 21 : count }); // 😇
     } catch (e) {
