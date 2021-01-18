@@ -311,6 +311,7 @@ img {
     @include flex(center, center);
 
     li {
+      text-align: center;
       margin: map-get($px, "sm");
       list-style: none;
       background: map-get($colors, "much-more-item-bg");
@@ -510,10 +511,6 @@ img {
 .label {
   display: block;
   color: map-get($colors, "gray-dark");
-}
-
-.checkbox-label {
-  @include flex(center);
 }
 
 .input {
