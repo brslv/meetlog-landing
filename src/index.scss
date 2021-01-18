@@ -322,7 +322,7 @@ img {
 }
 
 .have-an-idea {
-  width: 48ch;
+  max-width: 48ch;
   text-align: center;
   margin: map-get($px, "xl") auto;
   font-size: map-get($font-sizes, "md");
@@ -346,7 +346,9 @@ img {
     background: map-get($colors, "section-accent-bg");
     padding: map-get($px, "4xl");
     border-radius: $radius;
-    @include flex(flex-start);
+    @include mqlg {
+      @include flex(flex-start);
+    }
   }
 
   &-photo-container {
