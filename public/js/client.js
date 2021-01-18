@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded', function onDomLoaded() {
       return response.json()
     })
       .then(function (json) {
-        console.log('Response:', json)
         $submitBtn.removeAttribute("disabled");
         $form.parentNode.removeChild($form);
         if (json.ok) {
