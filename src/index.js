@@ -30,8 +30,8 @@ const port = 3000;
       return res.send({ok: true, count: (!count || count < 21) ? 21 : count }); // 😇
     } catch (e) {
       const duplicateEmailErrCode = 23505;
-      // if (duplicateEmailErrCode === Number(e.code))
-      //   return res.send({ok: false, message: "You're already on the list. 😻"});
+      if (duplicateEmailErrCode === Number(e.code))
+        return res.send({ok: false, message: "You're already on the list. 😻"});
       return res.send({
         ok: false,
         message: "Oops, something unexpected happened and I couldn't add you to the list... Yell at me on twitter/email to sort that out, please!"

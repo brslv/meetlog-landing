@@ -201,7 +201,11 @@ img {
 }
 
 .the-problem {
-  margin-bottom: map-get($px, "7xl") * 4;
+  margin-bottom: map-get($px, "7xl");
+
+  @include mqlg {
+    margin-bottom: map-get($px, "7xl") * 4;
+  }
 
   &-title {
     text-align: center;
@@ -292,7 +296,11 @@ img {
 
 .much-more {
   font-size: map-get($font-sizes, "lg");
-  margin: map-get($px, "7xl") * 4 auto;
+  margin: map-get($px, "7xl") auto;
+
+  @include mqlg {
+    margin: map-get($px, "7xl") * 4 auto;
+  }
 
   &-title {
     text-align: center;
@@ -383,7 +391,11 @@ img {
 }
 
 .why-build-this {
-  margin-bottom: map-get($px, "7xl") * 4;
+  margin-bottom: map-get($px, "7xl");
+
+  @include mqlg {
+    margin-bottom: map-get($px, "7xl") * 4;
+  }
 
   &-title {
     text-align: center;
@@ -414,8 +426,12 @@ img {
 }
 
 .sub {
-  margin-bottom: map-get($px, "7xl") * 4;
   position: relative;
+  margin-bottom: map-get($px, "7xl");
+
+  @include mqlg {
+    margin-bottom: map-get($px, "7xl") * 4;
+  }
 
   &-pattern {
     display: none;
