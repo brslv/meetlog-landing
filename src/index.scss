@@ -141,7 +141,7 @@ img {
   text-align: center;
   @include flex(center, space-between);
 
-  &:nth-child(even) {
+  &:nth-child(2) {
     padding: map-get($px, "xl") map-get($px, "3xl");
     background: map-get($colors, "section-accent-bg");
     border-radius: $radius;
@@ -210,6 +210,11 @@ img {
   &-title {
     text-align: center;
     font-size: map-get($font-sizes, "lg");
+    font-weight: map-get($weights, "bold");
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
   }
 
   &-grid {
