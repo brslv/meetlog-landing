@@ -12,7 +12,14 @@ function css() {
     .pipe(dest("./public/css"));
 }
 
+function clientJs() {
+  return src("./src/client.js")
+    .pipe(dest("./public/js"));
+}
+
 module.exports = {
   cssbuild: task("cssbuild", series(clean, css)),
   css: task("css", () => watch(["./src/**/*.scss"], series(clean, css))),
+  clientjsbuild: task("clientjsbuild", series(clientJs)),
+  clientjs: task("clientjs", () => watch(["./src/client.js"], series(clientJs))),
 };

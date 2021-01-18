@@ -2,7 +2,12 @@
 @import "./_base.scss";
 @import "./_btn.scss";
 
+.hidden {
+  display: none;
+}
+
 .brand {
+  z-index: 1;
   position: fixed;
   top: map-get($px, "4xl");
   left: map-get($px, "4xl");
@@ -20,7 +25,7 @@
     max-width: 100px;
   }
 
-  &-pattern-1 {
+  &-pattern {
     display: none;
     z-index: -1;
     position: absolute;
@@ -74,6 +79,11 @@
       @include flex(flex-start);
       margin-top: map-get($px, "4xl") * 2;
 
+      &-button-container {
+        @include flex;
+        flex-direction: column;
+      }
+
       > .btn:first-child {
         display: none;
         margin-right: map-get($px, "xl");
@@ -82,17 +92,16 @@
           display: flex;
         }
       }
-
-      .btn {
-        transform: none;
-
-        @include mqmd {
-          font-size: map-get($font-sizes, "lg");
-          padding: map-get($px, "3xl") !important;
-        }
-      }
-
     }
+  }
+}
+
+.btn.big {
+  transform: none;
+
+  @include mqmd {
+    font-size: map-get($font-sizes, "lg");
+    padding: map-get($px, "3xl") !important;
   }
 }
 
@@ -110,6 +119,14 @@
   &.big {
     max-width: 1280px;
   }
+
+  &.small {
+    max-width: 640px;
+  }
+
+  &.no-bottom-space {
+    padding-bottom: 0;
+  }
 }
 
 img {
@@ -118,7 +135,7 @@ img {
   margin: 0;
 }
 
-.section {
+.feature {
   flex-direction: column;
   margin-bottom: map-get($px, "7xl") * 2;
   text-align: center;
@@ -128,6 +145,10 @@ img {
     padding: map-get($px, "xl") map-get($px, "3xl");
     background: map-get($colors, "section-accent-bg");
     border-radius: $radius;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
   img {
@@ -180,7 +201,7 @@ img {
 }
 
 .the-problem {
-  //margin: map-get($px, "7xl") * 2 auto;
+  margin-bottom: map-get($px, "7xl") * 4;
 
   &-title {
     text-align: center;
@@ -232,13 +253,12 @@ img {
 
 .solution {
   text-align: center;
-  margin: map-get($px, "7xl") auto;
   background: map-get($colors, "section-accent-bg");
   border-radius: $radius;
   padding: map-get($px, "xl");
 
   &-title {
-    font-size: map-get($px, "3xl");
+    font-size: map-get($font-sizes, "xl");
     font-weight: map-get($weights, "bold");
     margin: 0 0 map-get($px, "lg") 0;
   }
@@ -268,4 +288,321 @@ img {
   }
   // max-width: 300px;
   @include glow("gray-light");
+}
+
+.much-more {
+  font-size: map-get($font-sizes, "lg");
+  margin: map-get($px, "7xl") * 4 auto;
+
+  &-title {
+    text-align: center;
+    font-size: map-get($font-sizes, "lg");
+    font-weight: map-get($weights, "bold");
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    @include flex(center, center);
+
+    li {
+      margin: map-get($px, "sm");
+      list-style: none;
+      background: map-get($colors, "much-more-item-bg");
+      padding: map-get($px, "md") map-get($px, "lg");
+      border-radius: $radius;
+    }
+  }
+
+}
+
+.have-an-idea {
+  width: 48ch;
+  text-align: center;
+  margin: map-get($px, "xl") auto;
+  font-size: map-get($font-sizes, "md");
+}
+
+.who-builds-this {
+  margin-bottom: map-get($px, "7xl");
+
+  &-title {
+    text-align: center;
+    font-size: map-get($font-sizes, "lg");
+    font-weight: map-get($weights, "bold");
+    margin-bottom: map-get($px, "7xl");
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
+  }
+
+  &-content {
+    background: map-get($colors, "section-accent-bg");
+    padding: map-get($px, "4xl");
+    border-radius: $radius;
+    @include flex(flex-start);
+  }
+
+  &-photo-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-right: map-get($px, "4xl");
+
+    img {
+      width: 100%;
+      flex: 1;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+
+  &-about-me {
+    flex: 4;
+
+    .accent {
+      margin: map-get($px, "4xl") 0;
+      font-weight: map-get($weights, "bold");
+    }
+
+    .small {
+      font-size: map-get($font-sizes, "sm");
+      color: map-get($colors, "gray-dark");
+    }
+  }
+}
+
+.why-build-this {
+  margin-bottom: map-get($px, "7xl") * 4;
+
+  &-title {
+    text-align: center;
+    font-size: map-get($font-sizes, "lg");
+    font-weight: map-get($weights, "bold");
+    margin-bottom: map-get($px, "7xl");
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
+  }
+
+  &-content {
+    background: map-get($colors, "section-accent-bg");
+    padding: map-get($px, "4xl");
+    border-radius: $radius;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: map-get($px, "xl");
+      }
+    }
+  }
+}
+
+.sub {
+  margin-bottom: map-get($px, "7xl") * 4;
+  position: relative;
+
+  &-pattern {
+    display: none;
+    z-index: -1;
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    width: 350px;
+    height: 350px;
+    background-image: url("/images/dots-pattern.svg");
+    background-repeat: no-repeat;
+
+    @include mq2xl {
+      display: block;
+    }
+  }
+
+  &-title {
+    text-align: center;
+    font-size: map-get($font-sizes, "lg");
+    font-weight: map-get($weights, "bold");
+    margin-bottom: map-get($px, "7xl");
+    line-height: 1.4em;
+
+    @include mqmd {
+      font-size: map-get($font-sizes, "xl");
+    }
+  }
+
+  &-content {
+    @include flex(flex-start);
+    flex-direction: column;
+
+    @include mqxl {
+      flex-direction: row;
+    }
+  }
+
+  &-info {
+    background: white;
+    margin-right: 0;
+    margin-bottom: map-get($px, "xl");
+
+    padding: map-get($px, "xl");
+    border-radius: $radius;
+    border: 1px solid map-get($colors, "gray-light");
+    // box-shadow: 0 15px 50px 5px rgba(0,0,0,0.5);
+    // box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.3);
+
+    @include mqxl {
+      flex: 2;
+      margin-bottom: 0;
+      margin-right: map-get($px, "xl");
+    }
+  }
+
+  .form-container {
+    width: 100%;
+    background: white;
+    padding: map-get($px, "xl");
+    border-radius: $radius;
+    border: 1px solid map-get($colors, "gray-light");
+    // box-shadow: 0 15px 50px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.3);
+
+    @include mqxl {
+      flex: 3;
+    }
+
+    .label {
+      margin-bottom: map-get($px, "lg");
+    }
+
+    .input {
+      padding: map-get($px, "md");
+      font-weight: map-get($weights, "bold");
+      font-size: map-get($font-sizes, "lg");
+      margin-bottom: map-get($px, "xl");
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+
+.form-control {
+  margin-top: map-get($px, "xl");
+  margin-bottom: map-get($px, "xl");
+}
+
+.label {
+  display: block;
+  color: map-get($colors, "gray-dark");
+}
+
+.checkbox-label {
+  @include flex(center);
+}
+
+.input {
+  width: 100%;
+  height: 70px;
+  border-radius: $radius;
+  border: 1px solid map-get($colors, "gray");
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: map-get($px, "lg");
+}
+
+.twitter-link {
+  font-weight: map-get($weights, "bold");
+  color: #1D8EEE;
+}
+
+.email-link {
+  font-weight: map-get($weights, "bold");
+  color: map-get($colors, "accent");
+}
+
+.footer {
+  padding-bottom: map-get($px, "7xl");
+  text-align: center;
+  font-size: map-get($font-sizes, "sm");
+  color: darken(map-get($colors, "gray-dark"), 5);
+  position: relative;
+  overflow: hidden;
+
+  &-meetlog {
+    max-width: 100px;
+    margin: map-get($px, "xl") auto;
+  }
+
+  p {
+    padding: 0;
+    margin: 0 0 map-get($px, "md") 0;
+  }
+
+  a {
+    color: map-get($colors, "text");
+    border-bottom: 1px solid map-get($colors, "text");
+  }
+}
+
+.body {
+  position: relative;
+
+  &-pattern {
+    display: none;
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    transform: translateX(-50%);
+
+    width: 350px;
+    height: 350px;
+    background-image: url("/images/dots-pattern.svg");
+    background-repeat: no-repeat;
+
+    @include mq2xl {
+      display: block;
+    }
+  }
+}
+
+.success-msg {
+  border-radius: $radius;
+  color: map-get($colors, "primary");
+
+  .title {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: map-get($font-sizes, "xl");
+    font-weight: map-get($weights, "bold");
+    line-height: 1.4em;
+  }
+}
+
+.error-msg {
+  border-radius: $radius;
+  font-size: map-get($font-sizes, "xl");
+  padding: 0 map-get($px, "md");
+  font-weight: map-get($weights, "bold");
+  line-height: 1.4em;
+  color: map-get($colors, "error");
+  margin-top: 0;
+  padding-top: 0;
 }

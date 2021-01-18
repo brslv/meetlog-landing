@@ -85,7 +85,8 @@ $colors: (
         "card-bg": #fff,
         "dialog-glow": darken(#f3f3f3, 15),
         "dim-bg": rgba(75, 90, 65, 0.2),
-        "section-accent-bg": #fcfcfc,
+        "section-accent-bg": #f9f9f9,
+        "much-more-item-bg": #f9f9f9,
 );
 $dropdown-border: 1px solid map-get($colors, "gray-light");
 $notification-border: $dropdown-border;

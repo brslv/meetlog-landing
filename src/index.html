@@ -20,12 +20,12 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="body">
 <div class="brand">
     <a href="/" title="Meetlog :: Meeting logs. Simplified."><img src="/images/logo.svg" alt="Meetlog logo"/></a>
 </div>
 <div class="header">
-    <div class="header-pattern-1"></div>
+    <div class="header-pattern"></div>
 
     <div class="header-meetlog"><img src="/images/meetlog.svg" alt="Meetlog"/></div>
 
@@ -36,15 +36,15 @@
         </div>
         <div class="header-jumbo-subtitle-2">All in real-time. Without distractions. 🙅‍</div>
         <div class="header-jumbo-cta">
-            <a href="#more" class="btn btn-default btn-round btn-glow btn-text">
-                Tell me more about it!
+            <a href="#more" class="btn big btn-default btn-round btn-glow btn-text">
+                See why it matters!
             </a>
-            <div>
-                <button class="btn btn-primary btn-round btn-glow">
-                    Simplify my logs NOW!
-                </button>
+            <div class="header-jumbo-cta-button-container">
+                <a href="#join" class="btn big btn-primary btn-round btn-glow">
+                    Get my meeting logs sorted out
+                </a>
                 <div class="btn-helper">
-                    Get 1 month <strong>FREE</strong>.
+                    Join NOW and get 1 month <strong>FREE</strong>. Limited offer!
                 </div>
             </div>
         </div>
@@ -54,10 +54,10 @@
     <div class="the-problem-title">Do these lines sound familiar to you?</div>
     <div class="the-problem-grid">
         <div class="line">
-            <strong>Do you remember</strong> what we've decided on the product meeting last week?
+            <strong>Do you remember</strong> what we've decided at the product meeting last week?
         </div>
         <div class="line">
-            John, can you <strong>send me the files</strong> that you were talking about on the marketing meeting?
+            John, can you <strong>send me the files</strong> that you were talking about at the marketing meeting?
         </div>
         <div class="line">
             Hey, Jenny, I'm done with the report. <strong>What should I do next?</strong>
@@ -66,10 +66,10 @@
             We talked about it last week. <strong>Don't you remember?</strong>
         </div>
         <div class="line">
-            Well, <strong>I thought</strong> you said it on the previous meeting. Didn't you?
+            Oh, <strong>didn't you propose that change</strong> at the previous meeting?
         </div>
         <div class="line">
-            Hey, guys, what's the meeting for? <strong>Do we have any agenda?</strong>
+            Hey, guys, what's the meeting for? <strong>Do we have an agenda?</strong>
         </div>
         <div class="line">
             Wait, I have an idea. Let me share my screen <strong>to show you my notes</strong> on it.
@@ -85,61 +85,56 @@
 </div>
 <div class="container">
     <div class="solution">
-        <h3 class="solution-title">That's what we do.</h3>
-        <h4 class="solution-description">Use our framework and get your meeting logs sorted out once and for all!
+        <h3 class="solution-title">That's what meetlog does.</h3>
+        <h4 class="solution-description">Use it and get your meeting logs sorted out once and for all!
             ✌️</h4>
     </div>
 </div>
 <div class="container">
-    <div class="how-it-works">
-        <h2>Here's how it works.</h2>
-    </div>
-</div>
-<div class="container">
-    <section class="section">
+    <section class="feature">
         <img draggable="false" src="/images/meeting-card.svg" alt="Meeting card"/>
-        <div class="section-content">
-            <div class="section-title">
+        <div class="feature-content">
+            <div class="feature-title">
                 It’s all there
             </div>
-            <div class="section-subtitle">
-                <p>Meetlog provides a framework for keeping your meeting logs in a single place.</p>
+            <div class="feature-subtitle">
+                <p>Meetlog provides a framework for keeping your meeting input/output in a single place.</p>
                 <p>Neatly organized. Searchable. Beautiful. 💅</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-rev">
+    <section class="feature feature-rev">
         <img draggable="false" src="/images/attendee-card.svg" alt="Attendees"/>
-        <div class="section-content">
-            <div class="section-title">
+        <div class="feature-content">
+            <div class="feature-title">
                 Collaborate in real-time
             </div>
-            <div class="section-subtitle">
+            <div class="feature-subtitle">
                 <p>Invite up to 20 people and interact in the meeting's dashboard in real-time. ⚡️</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-roles">
+    <section class="feature feature-roles">
         <img draggable="false" src="/images/role-picker.svg" alt="Attendee roles"/>
-        <div class="section-content">
-            <div class="section-title">
+        <div class="feature-content">
+            <div class="feature-title">
                 Set up roles
             </div>
-            <div class="section-subtitle">
+            <div class="feature-subtitle">
                 <p>Use roles to manage attendees’ permissions in a meeting. ✌️️</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-rev">
+    <section class="feature feature-rev">
         <img draggable="false" src="/images/notes.svg" alt="Meeting notes"/>
-        <div class="section-content">
-            <div class="section-title">
+        <div class="feature-content">
+            <div class="feature-title">
                 Take notes
             </div>
-            <div class="section-subtitle">
+            <div class="feature-subtitle">
                 <p>
                     Keep track of the essential information. ✍️
                 </p>
@@ -150,19 +145,136 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="feature">
         <img draggable="false" src="/images/next-steps.svg" alt="Next steps"/>
-        <div class="section-content">
-            <div class="section-title">
+        <div class="feature-content">
+            <div class="feature-title">
                 Distribute next steps
             </div>
-            <div class="section-subtitle">
+            <div class="feature-subtitle">
                 <p>Make sure everyone knows how to act on the company's goals after the meeting.</p>
 
-                <p>Add next steps, set up an owner and execute like a champ. ✅</p>
+                <p>Add next steps, set up an owner, and execute like a champ. ✅</p>
             </div>
         </div>
     </section>
 </div>
+
+<div class="container big much-more">
+    <h2 class="much-more-title">There's much more</h2>
+    <ul>
+        <li>🏷 Tags</li>
+        <li>🗃 Categories</li>
+        <li>❤️ Fav list</li>
+        <li>✉️ Personal messages</li>
+        <li>📥 Real-time notifications</li>
+        <li>🔗 Shareable meeting URLs</li>
+        <li>📈 Meeting Stats</li>
+        <li>💡 Meeting insights</li>
+    </ul>
+    <div class="have-an-idea">Have an idea about an exciting feature? Or something you desperately need in your team? I
+        will implement it for you.
+        Just get in touch. 🤙
+    </div>
+</div>
+
+<div class="container who-builds-this">
+    <div class="who-builds-this-title">
+        Who is building this?
+    </div>
+    <div class="who-builds-this-content">
+        <div class="who-builds-this-photo-container">
+            <img src="/images/me.jpg" alt="Photo of me"/>
+        </div>
+        <div class="who-builds-this-about-me">
+            <h3>Hi, there. 👋 My name is Borislav and I&#39;m building meetlog.io 🥰</h3>
+            <p>I&#39;m a software developer with a big passion for building useful products.</p>
+            <p>Besides that, I adore strength training, reading all kinds of books, and thinking about unsolved problems
+                around me. I&#39;m also a big fan of Ayn Rand and objectivism.</p>
+            <p>You can find me on <a href="https://twitter.com/Brslv" target="_blank" rel="noopener"
+                                     class="twitter-link">Twitter</a> or ping me via <a
+                    href="mailto:borislav.b.grigorov@gmail.com" class="email-link">Email</a>.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="why-build-this">
+        <div class="why-build-this-title"> Why are you building this?</div>
+        <div class="why-build-this-content">
+            <h3>I want to solve the problem with broken meetings. More specifically: 👇</h3>
+            <ul>
+                <li>🤷‍ People constantly misaligned on the most important activities of your business.</li>
+                <li>💼 Lack of a system, acting as a Single Source Of Truth when questions like &quot;What have we
+                    agreed on at the meeting last week?&quot; emerge.
+                </li>
+                <li>🙀 Constantly working at the void. A mental space where one is working on autopilot, doing his own
+                    thing, hoping that what he&#39;s doing is what everyone else is expecting to be done.
+                </li>
+                <li>🧐 Meetings starting with the question &quot;What&#39;s the meeting about?&quot;.</li>
+                <li>🗄 Lack of a way to share meeting-related resources in real-time, in a single place (virtual meeting table).</li>
+                <li>🔦 Searchable, neatly organized log of my previous meetings - decisions made, tasks assigned, notes
+                    taken, files shared, etc.
+                </li>
+                <li>🏡 Last, but not least, I want to have my Sundays in Tuesday, a.k.a. work for myself from the comfort of my couch. 💪</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="join" class="container big sub">
+    <div class="sub-title">Join the wait list and<br/>Get 1 Month FREE!</div>
+    <div class="sub-content">
+        <div class="sub-info">
+            <h4>Meetlog.io is still in development, but will be LIVE soon! 🤞</h4>
+            <p>
+                By joining meetlog.io's wait list, you get your one month free period right away (will be automatically activated for you once the platform is live).
+            </p>
+
+            <p>
+                If you'd like to get extra
+                information in a casual manner about the development process of the platform, please check the checkbox before submitting the form. 👉
+            </p>
+        </div>
+        <div class="form-container">
+            <div class="sub-pattern"></div>
+            <form id="sub-form">
+                <div>I will notify you on the email once meetlog is officially live. 👇</div>
+                <div class="form-control">
+                    <label for="email-input" class="label">Email</label>
+                    <input name="email" type="email" id="email-input" class="input"/>
+                    <label class="label checkbox-label"><input type="checkbox" name="get_updates" id="get-updates"/> Get additional
+                        casual updates on how the
+                        development of meetlog.io is
+                        going (1-2 per month, 0% spam!)
+                    </label>
+                </div>
+                <button class="btn big btn-glow btn-accent btn-round" id="submit-btn">Join NOW!</button>
+            </form>
+
+            <div id="success-msg" class="success-msg hidden">
+                <p class="title">Thank you for joining the wait list. 😇 You're awesome!</p>
+                <p id="count">There are {count} people on the list and you're one of them! 🎉</p>
+            </div>
+            <div id="error-msg" class="error-msg hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container no-bottom-space">
+    <div class="footer">
+        <div class="footer-meetlog"><img src="/images/meetlog.svg" alt="Meetlog"/></div>
+        <p>Crafted by <a href="https://twitter.com/Brslv" class="twitter-link" target="_blank" rel="noopener">@brslv</a> 🇧🇬. 100% indie.
+        </p>
+        <p>Meetlog.io is being built in public on my page <a href="https://bobi.page" target="_blank"
+                                                           title="Borislav Grigorov's personal blog">Bobi.page</a>, <a
+                href="https://getmakerlog.com/" target="_blank" rel="noopener">Makerlog</a>
+            and <a href="https://twitter.com/Brslv" target="_blank" rel="noopener">Twitter</a>.</p>
+    </div>
+</div>
+
+<div class="body-pattern"></div>
+<script src="/js/client.js"></script>
 </body>
 </html>

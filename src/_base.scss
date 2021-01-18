@@ -26,6 +26,11 @@ a {
   outline: none;
 }
 
+hr {
+  border: 0;
+  border-bottom: 3px dashed map-get($colors, "gray");
+}
+
 // ---- Utils ----
 .clickable {
   cursor: pointer;
