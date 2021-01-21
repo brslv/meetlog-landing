@@ -31,5 +31,5 @@ ${content || ''}
 <script src="/js/client.js"></script>
 </body>
 </html>
-  `;
+  `
 }

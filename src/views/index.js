@@ -1,5 +1,5 @@
-const _layout = require("./_layout");
-const _topBar = require("./partials/_topBar");
+const _layout = require('./_layout')
+const _topBar = require('./partials/_topBar')
 
 module.exports = function index() {
   const meta = `
@@ -13,7 +13,7 @@ module.exports = function index() {
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="https://meetlog.io/images/cover.png">
     <meta name="twitter:image:alt" content="Meetlog :: Meeting logs. Simplified.">
-  `;
+  `
 
   const content = `
 ${_topBar()}
@@ -266,7 +266,7 @@ ${_topBar()}
 </div>
 
 <div class="body-pattern"></div>
-  `;
+  `
 
-  return _layout({ content, meta });
+  return _layout({ content, meta })
 }

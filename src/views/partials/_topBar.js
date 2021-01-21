@@ -11,5 +11,5 @@ module.exports = function _topBar() {
     <a href="/blog" title="Meetlog blog" class="top-bar-link">Blog</a>
   </div>
 </div>
-  `;
+  `
 }

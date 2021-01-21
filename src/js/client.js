@@ -19,15 +19,19 @@ window.addEventListener('DOMContentLoaded', function onDomLoaded() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ email, getUpdates }),
-    }).then(function(response) {
-      return response.json()
     })
+      .then(function(response) {
+        return response.json()
+      })
       .then(function(json) {
         $submitBtn.removeAttribute('disabled')
         $form.parentNode.removeChild($form)
         if (json.ok) {
           $successMsg.classList.remove('hidden')
-          $successMsgCount.innerHTML = $successMsgCount.innerHTML.replace(/{count}/, json.count)
+          $successMsgCount.innerHTML = $successMsgCount.innerHTML.replace(
+            /{count}/,
+            json.count
+          )
         } else {
           $errorMsg.innerHTML = `<p>${json.message}</p>`
           $errorMsg.classList.remove('hidden')
