@@ -2,6 +2,16 @@
 @import "css/base";
 @import "css/btn";
 
+%section-title {
+  font-size: map-get($font-sizes, "lg");
+  font-weight: map-get($weights, "bold");
+  line-height: 1.4em;
+
+  @include mqmd {
+    font-size: map-get($font-sizes, "xl");
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -76,10 +86,8 @@
     text-align: center;
 
     &-title {
-      font-size: map-get($font-sizes, "xl");
-      font-weight: map-get($weights, "bold");
-      margin-bottom: map-get($px, "xl");
-      line-height: 1.4em;
+      margin: 0 0 map-get($px, "lg") 0;
+      @extend %section-title;
 
       @include mqmd {
         font-size: map-get($font-sizes, "xl");
@@ -210,13 +218,7 @@ img {
   }
 
   &-title {
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
-    line-height: 1.4em;
-
-    @include mqmd {
-      font-size: map-get($font-sizes, "xl");
-    }
+    @extend %section-title;
   }
 
   &-roles {
@@ -237,12 +239,7 @@ img {
 
   &-title {
     text-align: center;
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
-
-    @include mqmd {
-      font-size: map-get($font-sizes, "xl");
-    }
+    @extend %section-title;
   }
 
   &-grid {
@@ -295,9 +292,7 @@ img {
   padding: map-get($px, "xl");
 
   &-title {
-    font-size: map-get($font-sizes, "xl");
-    font-weight: map-get($weights, "bold");
-    margin: 0 0 map-get($px, "lg") 0;
+    @extend %section-title;
   }
 
   &-description {
@@ -337,12 +332,7 @@ img {
 
   &-title {
     text-align: center;
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
-
-    @include mqmd {
-      font-size: map-get($font-sizes, "xl");
-    }
+    @extend %section-title;
   }
 
   ul {
@@ -375,13 +365,8 @@ img {
 
   &-title {
     text-align: center;
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
     margin-bottom: map-get($px, "7xl");
-
-    @include mqmd {
-      font-size: map-get($font-sizes, "xl");
-    }
+    @extend %section-title;
   }
 
   &-content {
@@ -431,9 +416,8 @@ img {
   }
 
   &-title {
+    @extend %section-title;
     text-align: center;
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
     margin-bottom: map-get($px, "7xl");
 
     @include mqmd {
@@ -484,14 +468,8 @@ img {
 
   &-title {
     text-align: center;
-    font-size: map-get($font-sizes, "lg");
-    font-weight: map-get($weights, "bold");
     margin-bottom: map-get($px, "7xl");
-    line-height: 1.4em;
-
-    @include mqmd {
-      font-size: map-get($font-sizes, "xl");
-    }
+    @extend %section-title;
   }
 
   &-content {
@@ -663,25 +641,57 @@ input[type="checkbox"] {
 .blog {
   &-container {
     margin-top: map-get($px, "5xl") * 4;
+  }
 
-    > h2 {
+  &-featured-container {
+    margin: map-get($px, "xl") auto;
+    padding: 0 map-get($px, "3xl");
+    max-width: 1280px;
+    flex-direction: column;
+    @include flex;
+
+    .title {
       text-align: center;
+      @extend %section-title;
+    }
+
+    .blog-article {
+      width: 100%;
+      min-height: 300px;
+      @include flex(center, center);
+      @include glow("gray-light");
+
+      &-title {
+        font-size: map-get($font-sizes, "3xl");
+        margin-bottom: map-get($px, "lg");
+      }
     }
   }
 
   &-articles-container {
-    grid-template-columns: repeat(1, 1fr);
-    @extend %container;
-    @include grid;
+    
+    .title {
+      text-align: center;
+      margin-top: map-get($px, "7xl") * 2;
+      font-size: map-get($font-sizes, "lg");
+      font-weight: map-get($weights, "bold");
+    }
 
-    @include mqmd { grid-template-columns: repeat(2, 1fr); }
-    @include mqxl { grid-template-columns: repeat(3, 1fr); }
+    .articles {
+      grid-template-columns: repeat(1, 1fr);
+      @extend %container;
+      @include grid;
+
+      @include mqmd { grid-template-columns: repeat(2, 1fr); }
+    }
   }
 
   &-article {
+    display: block;
     border: 1px solid map-get($colors, "gray-dark2");
     border-radius: $radius;
     padding: map-get($px, "xl");
+    box-shadow: 0;
     @include transition(box-shadow);
     // @include glow("gray-light");
     @include glow-hover("gray-light");

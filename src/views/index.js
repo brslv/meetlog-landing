@@ -76,7 +76,7 @@ ${_topBar()}
 </div>
 <div class="container">
     <div class="solution">
-        <h2 class="solution-title">That's what meetlog does.</h2>
+        <h2 class="solution-title mt-0">That's what meetlog does.</h2>
         <h4 class="solution-description">Use it and get your meeting logs sorted out once and for all!
             ✌️</h4>
     </div>

@@ -38,6 +38,12 @@ const index = require('./views/index')
               "And what about this one. It's a bit longer, but hey, who cares. We need to test this one, so why not just pour out some text here.",
             slug: 'some-other-title',
           },
+          {
+            title: 'Third article and yes',
+            excerpt:
+              "And what about this one. It's a bit longer, but hey, who cares. We need to test this one, so why not just pour out some text here.",
+            slug: 'some-other-title',
+          },
         ],
       })
     )
