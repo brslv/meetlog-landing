@@ -22,14 +22,14 @@ function images() {
 }
 
 function clientJs() {
-  return src("./src/client.js")
+  return src("./src/js/**/*.js")
     .pipe(dest(clientJsPath));
 }
 
 const tasks = {
   // dev/watch tasks
   css: task("css", () => watch(["./src/**/*.scss"], series(clean(cssPath), css))),
-  clientJs: task("clientJs", () => watch(["./src/client.js"], series(clean(clientJsPath), clientJs))),
+  clientJs: task("clientJs", () => watch(["./src/js/**/*.js"], series(clean(clientJsPath), clientJs))),
   images: task("images", () => watch(["./src/images/**"]), series(clean(imagesPath), images)),
 
   // runs a parallel task with all the above
