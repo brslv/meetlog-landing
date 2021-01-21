@@ -4,10 +4,9 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "gulp cssbuild && gulp clientjsbuild && node ./src/index.js",
+    "start": "gulp build && node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "css": "gulp css",
-    "clientjs": "gulp clientjs"
+    "dev-assets": "gulp build && gulp watch"
   },
   "keywords": [],
   "author": "",
