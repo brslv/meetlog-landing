@@ -46,7 +46,12 @@ const port = 3000;
         ok: false,
         message:
           "Oops, something unexpected happened and I couldn't add you to the list... Yell at me on twitter/email to sort that out, please!",
+<<<<<<< Updated upstream
       });
+=======
+        details: { code: e.code, message: e.message }
+      })
+>>>>>>> Stashed changes
     }
   });
 
