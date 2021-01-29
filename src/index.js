@@ -1,58 +1,63 @@
-const dotenv = require("dotenv");
-const path = require("path");
-const express = require("express");
-const { Client } = require("pg").native;
+const dotenv = require('dotenv')
+const path = require('path')
+const express = require('express')
+dotenv.config({ path: path.join(__dirname, '../.env') })
+const app = express()
+const port = 3000
+const db = require('./db')
 
-const app = express();
-const port = 3000;
+app.use(express.static('public'))
+app.use(express.json())
 
-dotenv.config({ path: path.join(__dirname, "../.env") });
-const client = new Client();
+app.get('/', (req, res) => {
+  return res.sendFile(path.join(__dirname, '/index.html'))
+})
 
-client.on("error", (error) => {
-  console.log("DB Client error occurred:\n");
-  console.log(error);
-});
-client.connect(function handleConnection(err) {
-  if (err) throw err;
+app.post('/sub', async (req, res) => {
+  const data = req.body
+  res.set('content-type', 'application/json')
 
-  app.use(express.static("public"));
-  app.use(express.json());
+  // sql queries
+  const countQuery = 'SELECT COUNT(*) FROM subs;'
+  const insertQuery =
+    'INSERT INTO subs(email, get_updates) VALUES($1, $2);'
+  const insertParams = [data.email, data.getUpdates]
 
-  app.get("/", (req, res) => {
-    return res.sendFile(path.join(__dirname, "/index.html"));
-  });
+  // querying the database
+  db.task(async t => {
+    // insert the sub + get the count of subs
+    await t.none(insertQuery, insertParams)
+    return t.any(countQuery)
+  })
+    .then(result => {
+      const [{ count }] = result
+      console.log({ count, result })
+      const subsCount = Number(count)
 
-  app.post("/sub", async (req, res) => {
-    const data = req.body;
-    res.set("content-type", "application/json");
+      // respond
+      return res.send({ ok: true, count: subsCount < 3 ? 3 : subsCount }) // 😇
+    })
+    .catch(e => {
+      console.log('error', e)
 
-    try {
-      await client.query(
-        "INSERT INTO subs(email, get_updates) VALUES($1, $2);",
-        [data.email, data.getUpdates]
-      );
-      const countResult = await client.query("SELECT COUNT(*) FROM subs;");
-      const count = countResult.rows[0].count;
-      return res.send({ ok: true, count: !count || count < 21 ? 21 : count }); // 😇
-    } catch (e) {
-      const duplicateEmailErrCode = 23505;
+      const duplicateEmailErrCode = 23505
       if (duplicateEmailErrCode === Number(e.code))
         return res.send({
           ok: false,
-          message: "You're already on the list. 😻",
-        });
+          message: 'You\'re already on the list. 😻',
+        })
+
+      // something very bad happened, but I don't know what... 😱
+
       return res.send({
         ok: false,
         message:
-          "Oops, something unexpected happened and I couldn't add you to the list... Yell at me on twitter/email to sort that out, please!",
+          'Oops, something unexpected happened and I couldn\'t add you to the list... Yell at me on twitter/email to sort that out, please!',
         details: { ...e },
-      });
-    }
-  });
+      })
+    })
+})
 
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-  });
-
-});
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
