@@ -1,14 +1,16 @@
 const dotenv = require("dotenv");
 const path = require("path");
 const express = require("express");
+const { Client } = require("pg").native;
+
 const app = express();
 const port = 3000;
+
+const client = new Client();
 
 (async function () {
   dotenv.config({ path: path.join(__dirname, "../.env") });
 
-  const { Client } = require("pg").native;
-  const client = new Client();
   client.on("error", (error) => {
     console.log("DB Client error occurred:\n");
     console.log(error);
